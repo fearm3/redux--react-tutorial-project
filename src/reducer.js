@@ -1,4 +1,4 @@
-import { DECREASE, INCREASE } from "./action";
+// import { DECREASE, INCREASE } from "./action";
 
 //reducer
 function reducer(state, action) {
