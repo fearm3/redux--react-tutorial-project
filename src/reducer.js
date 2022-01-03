@@ -6,9 +6,15 @@ import {
   GET_TOTALS,
   TOGGLE_AMOUNT,
 } from "./action";
+import cartItems from "./cart-items";
 
 //reducer
-function reducer(state, action) {
+const initialStore = {
+  cart: cartItems,
+  total: 0,
+  amount: 0,
+};
+function reducer(state = initialStore, action) {
   if (action.type === CLEAR_CART) {
     return { ...state, cart: [] };
   }
