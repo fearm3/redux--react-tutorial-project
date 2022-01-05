@@ -24,17 +24,17 @@ const counterSlice = createSlice({
   },
 });
 const initialAuthentication = {
-  isAuthentication: false,
+  isAuthenticated: false,
 };
 const authSlice = createSlice({
   name: "authentication",
   initialState: initialAuthentication,
   reducers: {
     login(state) {
-      state.isAuthentication = true;
+      state.isAuthenticated = true;
     },
     logout(state) {
-      state.isAuthentication = false;
+      state.isAuthenticated = false;
     },
   },
 });
