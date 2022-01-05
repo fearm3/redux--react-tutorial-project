@@ -1,13 +1,13 @@
 // import { createStore } from "redux";
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-export const INCREMENT = "increment";
+// export const INCREMENT = "increment";
 
-const initialState = { counter: 0, showCounter: true };
+const initialCounterState = { counter: 0, showCounter: true };
 
 const counterSlice = createSlice({
   name: "counter",
-  initialState,
+  initialState: initialCounterState,
   reducers: {
     increment(state) {
       state.counter++;
@@ -23,11 +23,27 @@ const counterSlice = createSlice({
     },
   },
 });
+const initialAuthentication = {
+  isAuthentication: false,
+};
+const authSlice = createSlice({
+  name: "authentication",
+  initialState: initialAuthentication,
+  reducers: {
+    login(state) {
+      state.isAuthentication = true;
+    },
+    logout(state) {
+      state.isAuthentication = false;
+    },
+  },
+});
 
 const store = configureStore({
-  reducer: { counter: counterSlice.reducer }, //one reducer you dont need curly brace
+  reducer: { counter: counterSlice.reducer, auth: authSlice.reducer }, //one reducer you dont need curly brace
 });
 export const counterActions = counterSlice.actions;
+export const authActions = authSlice.actions;
 
 export default store;
 
